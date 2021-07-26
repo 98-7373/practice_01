@@ -1,12 +1,24 @@
  const form = document.getElementById("form");
  const input = document.getElementById("input");
  const ul = document.getElementById("ul");
+ const da = document.getElementById("da");
 
  const todos = JSON.parse(localStorage.getItem("todos"));
 
+
+function DateTime() {
+  let DD = new Date();
+
+  Hours = DD.getHours();
+  Minutes = DD.getMinutes();
+  Seconds = DD.getSeconds();
+  document.write(Hours,"時",Minutes,"分",Seconds,"秒"); 
+}
+ 
  if(todos) {
    todos.forEach(todo => {
      add(todo);
+     DateTime();
    })
  }
 
@@ -17,7 +29,8 @@
  });
 
  function add(todo) {
-   let todoText = input.value;;
+   let todoText = input.value;
+
 
 if(todo) {
   todoText = todo.text;
